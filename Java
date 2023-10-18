@@ -77,7 +77,11 @@ public class OrderEntryPhase1
 	{
 		System.out.print("Could not process data. Closing program.");
 	}
+	//Close Scanner object
+	input.close();
 	}
+		
+	
 	
 	public String toString() 
 	{
@@ -90,10 +94,9 @@ public class OrderEntryPhase1
 				"\t \t  \t  " + totalTax +
 				"\t " + totalDiscount +
 				"  \t \t  " + netAmount ) ;
+		
 	}
-	
-	// Close Scanner object
-		input.close();
+					
 	
 	public static void main(String[] args) {
 		// Create new order
@@ -110,3 +113,4 @@ public class OrderEntryPhase1
 	}
 
 } 
+
