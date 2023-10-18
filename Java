@@ -1,0 +1,112 @@
+//Samirah Ali, Course: CIS 406, Lab: Course Project Phase 1
+
+package orderEntryPhase1;
+
+import java.util.Scanner;
+
+import java.util.InputMismatchException;
+
+public class OrderEntryPhase1
+{
+
+	//Declare variables
+	private String itemNumber;
+	private String itemDescription;
+	private Double itemPrice;
+	private Integer quantityOrdered;
+	private Double totalTax;
+	private Double totalDiscount;
+	private Double netAmount;
+	
+	private void getData()
+	
+	{
+	//Declare Scanner object to get sample data
+	Scanner input = new Scanner(System.in);
+	
+	//Prompt user for order line
+	System.out.print("Enter item number: ");
+	itemNumber = input.nextLine();
+	
+	System.out.print("Enter item description: ");
+	itemDescription = input.nextLine();
+	
+	try
+	{
+	System.out.print("Enter item price: $ ");
+	itemPrice = input.nextDouble();
+	}
+	catch (InputMismatchException e)
+	{
+		System.out.println("Data entered is invalid. Please try again");
+	}
+	try
+	{
+	System.out.print("Enter quantity ordered: ");
+	quantityOrdered = input.nextInt();
+	}
+	catch (InputMismatchException e)
+	{
+		System.out.println("Error occured. Please enter the correct data.");
+	}
+	
+	try
+	{
+	System.out.print("Enter the total tax of the item: ");
+	totalTax = input.nextDouble();
+	}
+	catch (InputMismatchException e)
+	{
+		System.out.println("System error. Could not process data. ");
+	}
+	try
+	{
+	System.out.print("Enter the total discount for the item: ");
+	totalDiscount = input.nextDouble();
+	}
+	catch (InputMismatchException e)
+	{
+		System.out.println("Data entered is invalid. Contact System Administrator.");
+	}
+	try
+	{
+	System.out.print("Enter the net amount for the item: ");
+	netAmount = input.nextDouble();
+	}
+	catch (InputMismatchException e)
+	{
+		System.out.print("Could not process data. Closing program.");
+	}
+	}
+	
+	public String toString() 
+	{
+		return ("\nOrder Details: \n" +
+				"item Number: \t item Description: \t item Price: \t quantity ordered: \t total tax: \t total discount: \tnet amount: \n" 
+				+ "\n"+ itemNumber +  
+				"\t \t " + itemDescription +
+				"\t \t  " + itemPrice +
+				"\t \t   " + quantityOrdered +
+				"\t \t  \t  " + totalTax +
+				"\t " + totalDiscount +
+				"  \t \t  " + netAmount ) ;
+	}
+	
+	// Close Scanner object
+		input.close();
+	
+	public static void main(String[] args) {
+		// Create new order
+		OrderEntryPhase1 myOrder = new OrderEntryPhase1();
+		
+		
+		// Call for data order
+		myOrder.getData();
+		
+		//Display details for order
+		System.out.println(myOrder.toString());
+		
+		 
+	}
+
+} 
