@@ -14,7 +14,7 @@ public class OrderEntryPhase2 {
 		private Integer quantityOrdered = 0;
 		private Double grossAmount;
 		private Double taxPercentage = 0.0;
-		private Double taxAmount = 0.0;
+		private Double taxAmount =  0.0;
 		private Double discountPercent = 0.0;
 		private Double discountAmount = 0.0 ;
 		private Double netAmount = 0.0;
@@ -70,6 +70,9 @@ public class OrderEntryPhase2 {
 			System.out.println("Data entered is invalid. Contact System Administrator.");
 		}
 		
+		//Close Scanner object
+				input.close();
+		
 		//Calculations
 		grossAmount = itemPrice * quantityOrdered;
 		taxAmount = grossAmount * taxPercentage / 100.0; 
@@ -77,29 +80,37 @@ public class OrderEntryPhase2 {
 		discountAmount = grossAmount * discountPercent / 100.0;
 		netAmount = grossAmount - discountAmount;
 				
-		//Output results for the item of the order
-		
-		
-				
-		//Close Scanner object
-		input.close();
 		}
-		
-		
-		
+			
+		//Output results for the item of the order
 		
 		public String toString() 
 		{
 			return ("\nOrder Details: \n" +
-					"item Number: \t item Description: \t item Price: \t quantity ordered: \t tax precent \t tax amt: \t discount %: \t discount amt: \t net amount: \n" 
-					+ "\n"+ itemNumber +  
+					"Item Num: \t Item Desc: \t Item Price: \t Quantity Ord: \t Tax %:\t Tax Amt: \t Discount %: \t Discount Amt: \t Net Amt: \n" 
+					+ "--------" +  
+					"\t " + "---------" +
+					"\t " + "----------" +
+					"\t " + "------------" +
+					"\t " + "-----" +
+					"\t " + "-------" +
+					"\t " + "----------" +
+					"\t" + "------------" +
+					"\t " + "--------" +
+					"\n" + itemNumber +  
 					"\t \t " + itemDescription +
-					"\t \t  " + itemPrice +
-					"\t \t   " + quantityOrdered +
-					"\t \t  \t  " + taxPercentage +
-					"\t " + discountPercent +
-					"  \t \t  " + netAmount ) ;
+					"\t " + itemPrice +
+					"\t \t  " + quantityOrdered +
+					"\t \t  " + taxPercentage +
+					"\t  " + "$" + taxAmount +
+					"\t\t  " + discountPercent +
+					"\t\t  " +"$"+ discountAmount +
+					"\t " +"$"+ netAmount ) ;
+
+		
 		}
+			
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -113,3 +124,6 @@ public class OrderEntryPhase2 {
 				
 				//Display details for order
 				System.out.println(myOrder.toString());
+				
+	}
+}
